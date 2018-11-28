@@ -3,8 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// 引入公共样式
-import './assets/style/public.less'
+
+import axios from './utils/http'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+Object.defineProperties(Vue.prototype, {
+  '$axios': {
+    get: () => axios
+  }
+})
 
 Vue.config.productionTip = false
 

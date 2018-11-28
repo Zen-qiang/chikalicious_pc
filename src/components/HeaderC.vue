@@ -1,9 +1,9 @@
 <template>
   <div class="c-header">
-    <h1>CHIKALICIOUS</h1>
-    <div>
+    <div class="logo"><img src="../assets/image/logo.png"></div>
+    <div class="navs">
       <ul>
-        <li v-for="nav of navlist" :key="nav.value" v-text="nav.label" :class="{activeText: false}"></li>
+        <li v-for="nav of navlist" :key="nav.value"><router-link v-text="nav.label" active-class="active" :to="{name: nav.value}"></router-link></li>
       </ul>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 import mokeHeader from '../moke/mokeHeader.js'
 export default {
+  name: 'Header',
   data () {
     return {
       title: mokeHeader.name,
@@ -19,38 +20,38 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .c-header {
   text-align: center;
-  color: #090909;
-  h1 {
-    font-size: 28px;
-    letter-spacing: 4px;
-    margin-top: 45px;
-    margin-bottom: 15px;
-    display: inline-block;
-    &::before, &::after {
-      content: '';
-      display: inline-block;
-      vertical-align: baseline;
-      width: 4px;
-      height: 4px;
-      background: currentColor;
-      border-radius: 100%;
-      overflow: hidden;
+  color: $color;
+  .logo {
+    line-height: 0;
+    padding-top: rem(30);
+    padding-bottom: rem(20);
+    img {
+      width: rem(292);
+      height: rem(82);
     }
+  }
+  .navs {
+    padding: 0 rem(60);
+    background: linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center bottom;
+    background-size: 100% 1px;
+    background-origin: content-box;
   }
   ul {
     display: flex;
     justify-content: center;
-    max-width: 1024px;
-    margin: 0 auto;
-    background: linear-gradient(to right, transparent, currentColor, transparent) no-repeat center bottom;
-    background-size: 100% 1px;
     li {
-      font-size: 18px;
-      padding: 20px 28px;
+      font-size: rem(20);
+      line-height: rem(48);
+      padding: 0 rem(35);
       cursor: pointer;
+      font-family: 'GreyBold';
+      transition: color $duration;
+      &:hover, & a.active {
+        color: $activeColor;
+      }
     }
   }
 }

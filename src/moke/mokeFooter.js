@@ -1,53 +1,29 @@
 export default {
-  name: 'CHIKALICIOUS',
   links: [
-    [
-      {
-        label: 'CHIKALICIOUS'
-      },
-      {
-        label: 'STORE'
-      },
-      {
-        label: 'NEWS'
-      },
-      {
-        label: 'ARTS'
-      },
-      {
-        label: 'ABOUT'
-      },
-      {
-        label: 'CONTACT'
-      }
-    ],
-    [
-      {
-        label: 'ITEM TIRAMISU'
-      },
-      {
-        label: 'ITEM ICECREAM'
-      },
-      {
-        label: 'ITEM BLUEBERRY'
-      },
-      {
-        label: 'ITEM WATERMELON'
-      }
-    ],
-    [
-      {
-        label: 'DESSERTFRIST FUSION'
-      },
-      {
-        label: 'CHIKALICIOUS DESSERT'
-      }
-    ],
-    [
-      {
-        label: 'ITEM MATCHA'
-      }
-    ]
+    {
+      label: 'CHIKALICIOUS',
+      value: 'Home'
+    },
+    {
+      label: 'STORE',
+      value: 'Store'
+    },
+    {
+      label: 'NEWS',
+      value: 'News'
+    },
+    {
+      label: 'ARTS',
+      value: 'Arts'
+    },
+    {
+      label: 'ABOUT',
+      value: 'About'
+    },
+    {
+      label: 'CONTACT',
+      value: 'Contact'
+    }
   ],
-  address: '2604 Universal Trade Centre 3-5A Arbuthnot Road, Central, Hong Kong @2017 Chikalicious Restaurants. All Rights Reserved'
+  address: 'Unit 106, THE HOUSE at Xintiandi, 123 Xingye road, Huangpu district, Shanghai<br>&copy 2018 Chikalicious Dessert Bar.All Rights Reserved.'
 }

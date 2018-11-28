@@ -1,34 +1,61 @@
 <template>
   <div class="c-index">
-    <div class="header">
+    <header>
       <header-c></header-c>
-    </div>
-    <main class="body"></main>
-    <div class="footer">
+    </header>
+    <main><router-view></router-view></main>
+    <footer>
       <footer-c></footer-c>
-    </div>
+    </footer>
+    <back-to-top bottom="80px" right="60px"><span class="backtotop"></span></back-to-top>
   </div>
 </template>
 <script>
 import HeaderC from '../components/HeaderC.vue'
 import FooterC from '../components/FooterC.vue'
+import BackToTop from 'vue-backtotop'
 export default {
   name: 'index',
   components: {
     HeaderC,
-    FooterC
+    FooterC,
+    BackToTop
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .c-index {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  > div {
-  }
   main {
     flex: 1;
+  }
+  .backtotop {
+    display: block;
+    width: rem(50);
+    height: rem(50);
+    border: 1px solid #ddd;
+    background: #0d0d0d;
+    position: relative;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      height: 50%;
+      width: 1px;
+      background: #fff;
+      left: 0;
+      right: 0;
+      top: rem(15);
+      margin: 0 auto;
+      transform-origin: 50% 0;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
   }
 }
 </style>

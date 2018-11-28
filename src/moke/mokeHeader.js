@@ -3,27 +3,27 @@ export default {
   navlist: [
     {
       label: 'CHIKALICIOUS',
-      value: 'home'
+      value: 'Home'
     },
     {
       label: 'STORE',
-      value: 'store'
+      value: 'Store'
     },
     {
       label: 'NEWS',
-      value: 'news'
+      value: 'News'
     },
     {
       label: 'ARTS',
-      value: 'arts'
+      value: 'Arts'
     },
     {
       label: 'ABOUT',
-      value: 'about'
+      value: 'About'
     },
     {
       label: 'CONTACT',
-      value: 'contact'
+      value: 'Contact'
     }
   ]
 }

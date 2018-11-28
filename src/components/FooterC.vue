@@ -1,108 +1,65 @@
 <template>
   <div class="c-footer">
-    <img src="../assets/image/footer-bg.png" alt="">
     <div>
-      <div>
-        <ul>
-          <li v-for="(link, index) of links" :key="index">
-            <span v-for="linkItem of link" :key="linkItem.label" v-text="linkItem.label"></span>
-          </li>
-        </ul>
-        <p>{{slogan}}</p>
-      </div>
-      <p>{{address}}</p>
+      <ul>
+        <li v-for="(link, index) of links" :key="index"><router-link  active-class="active" :to="{name: link.value}" v-text="link.label"></router-link></li>
+      </ul>
+      <img src="../assets/image/logoWhite.png">
     </div>
+    <p v-html="address"></p>
   </div>
 </template>
 <script>
 import mokeFooter from '../moke/mokeFooter.js'
 export default {
+  name: 'Footer',
   data () {
     return {
-      slogan: mokeFooter.name,
       links: mokeFooter.links,
       address: mokeFooter.address
+    }
+  },
+  computed: {
+    currentRouteName () {
+      return this.$route.name
     }
   }
 }
 </script>
-
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .c-footer {
-  position: relative;
-  height: 260px;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, .9);
-    z-index: 0;
-  }
-  > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    vertical-align: middle;
-    z-index: -1;
-  }
+  padding: rem(36) rem(60) rem(58);
+  color: #fff;
+  font-family: 'GreyLight';
+  background: $color linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center bottom;
+  background-size: 100% 1px;
+  background-origin: content-box;
   > div {
-    height: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    position: relative;
-    color: #fff;
-    padding: 30px 0;
-    background: linear-gradient(to top, transparent 29px,#fff, #fff) no-repeat center bottom;
-    background-size: 100% 30px;
-    > div {
-      display: flex;
-      justify-content: space-between;
-      ul {
-        li {
-          font-size: 14px;
-          display: flex;
-          margin-right: -20px;
-          line-height: 24px;
-          &:first-of-type {
-            span {
-              flex: 1;
-            }
-          }
-          span {
-            padding-right: 20px;
-            cursor: pointer;
-          }
-        }
-      }
-      p {
-        font-size: 16px;
-        position: relative;
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          right: 0;
-          margin: -6px auto 0;
-          width: 3px;
-          height: 3px;
-          background: #fff;
-          border-radius: 50%;
-          vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    ul {
+      line-height: 0;
+      li {
+        font-size: rem(16);
+        display: inline-block;
+        line-height: rem(48);
+        vertical-align: middle;
+        margin-right: rem(50);
+        cursor: pointer;
+        & a.active {
+          color: $activeColor;
         }
       }
     }
-    > p {
-      font-size: 12px;
-      position: absolute;
-      bottom: 55px;
-      left: 0;
+    img {
+      width: rem(162);
+      height: rem(46);
     }
+  }
+  > p {
+    font-size: 12px;
+    margin: rem(100) 0 rem(40);
   }
 }
 </style>
