@@ -2,6 +2,7 @@
   <div class="c-news">
     <div>
       <item-news v-for="(news, index) of newsData" :key="index" :active="activeIndex === index" @mouseenter.native="activeIndex = index" @mouseleave.native="activeIndex = null" :datas="news"></item-news>
+      <!-- :identifier="paramsType" -->
       <load-more :identifier="paramsType" @handeraction="getNews"></load-more>
     </div>
   </div>
@@ -17,8 +18,7 @@ export default {
   },
   props: {
     paramsType: {
-      type: Number,
-      default: 1
+      type: Number
     }
   },
   data () {
@@ -32,6 +32,7 @@ export default {
   watch: {
     $route (to, from) {
       Object.assign(this.$data, this.$options.data())
+      // this.getNews()
     }
   },
   methods: {

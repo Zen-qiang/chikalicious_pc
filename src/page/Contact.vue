@@ -73,6 +73,8 @@ export default {
         emailAddress: this.emailName
       }).then(({data}) => {
         if (data.code === 666) {
+          alert('发送成功')
+        } else {
           alert(data.message)
         }
       }).catch(err => {

@@ -16,7 +16,7 @@
         </div>
         <div>
           <p class="dsc">
-            <span>规&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</span><span v-for="(specificationIds, index) of detail.specificationIds" :key="index">{{specificationIds}}<small v-if="index !== detail.specificationIds.length-1">、</small></span>
+            <span>规格：</span><span v-for="(specificationIds, index) of detail.specificationIds" :key="index">{{specificationIds}}<small v-if="index !== detail.specificationIds.length-1">、</small></span>
           </p>
           <p class="dsc">
             <span>销售区域：</span><span v-for="(regionIds, index) of detail.regionIds" :key="index">{{regionIds}}<small v-if="index !== detail.regionIds.length-1">、</small></span>

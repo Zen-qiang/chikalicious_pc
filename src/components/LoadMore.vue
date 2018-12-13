@@ -28,6 +28,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.infinite-loading-container {
+  margin-top: rem(80);
+}
 .spinner, .nomore, .noresults {
   font-size: rem(18);
   font-family: 'GreyLight';

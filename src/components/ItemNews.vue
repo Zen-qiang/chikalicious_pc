@@ -48,10 +48,12 @@ export default {
   margin-bottom: rem(50);
   &.active {
     > div {
-      img {
-        display: none;
-        &:last-of-type {
-          display: inline-block;
+      &:first-of-type {
+        img {
+          display: none;
+          &:last-of-type {
+            display: inline-block;
+          }
         }
       }
       &:last-of-type {
@@ -81,14 +83,18 @@ export default {
       background: linear-gradient(to right, currentColor, currentColor) no-repeat center bottom;
       background-size: 100% 1px;
       h2 {
+        font-family: 'PingFang-HK-Medium-2', PingFangHK-Medium;
+        font-weight: normal;
         font-size: rem(28);
         color: $color;
       }
       time {
+        font-family: 'GreyLight';
         font-size: rem(18);
         color: #c2c2c2;
       }
       p {
+        font-family: 'PingFang-Jian-ChangGuiTi-2', PingFangSC-Regular;
         font-size: rem(18);
         color: $color;
         margin-top: rem(20);
