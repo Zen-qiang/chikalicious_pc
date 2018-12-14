@@ -5,10 +5,10 @@
         <li v-for="(caseItem, index) of showCase" :key="index">
           <p
             v-for="(item, itemIndex) of caseItem" :key="itemIndex + '-' + index"
-            :class="{active: showCaseHover === itemIndex + '-' + index}"
+            :class="{active: showCaseHover === itemIndex + '-' + index || isTouchDevice}"
             @mouseenter="showCaseHover = itemIndex + '-' + index"
             @mouseleave="showCaseHover = ''">
-            <img :src="item.bannerUrl">
+            <!-- <img :src="item.bannerUrl"> -->
             <img :src="item.hoverUrl">
             <span>{{item.bannerDescription}}</span>
           </p>
@@ -16,15 +16,16 @@
       </ul>
     </div>
     <div class="productList">
-      <ul>
+      <ul class="row">
         <li
+          class="col-6 col-sm-6 col-md-4 col-lg-3"
           v-for="(item, index) of productList" :key="index"
-          :class="{active: productListHover === index}"
+          :class="{active: productListHover === index || isTouchDevice}"
           @mouseenter="productListHover = index"
           @mouseleave="productListHover = ''"
           @click="toDetail(item.id)">
           <div>
-            <img :src="item.imageUrl">
+            <!-- <img :src="item.imageUrl"> -->
             <img :src="item.hoverUrl">
           </div>
           <p>
@@ -49,6 +50,11 @@ export default {
   created () {
     this.getBanner()
     this.getProductList()
+  },
+  computed: {
+    isTouchDevice () {
+      return 'ontouchstart' in document.documentElement
+    }
   },
   methods: {
     getBanner () {
@@ -101,14 +107,17 @@ export default {
           margin-bottom: rem(30);
           flex: 1;
           cursor: pointer;
+          font-size: 0;
           img {
             vertical-align: middle;
             object-fit: cover;
             width: 100%;
             height: 100%;
-            &:last-of-type {
-              display: none;
-            }
+            filter: grayscale(100%);
+            transition: $duration;
+            // &:last-of-type {
+            //   display: none;
+            // }
           }
           span {
             position: absolute;
@@ -120,14 +129,15 @@ export default {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            background: #eee repeating-linear-gradient(-45deg, transparent, transparent 2px, #fff 2px, #fff 6px);
+            // background: #eee repeating-linear-gradient(-45deg, transparent, transparent 2px, #fff 2px, #fff 6px);
           }
           &.active {
             img {
-              display: none;
-              &:last-of-type {
-                display: inline-block;
-              }
+              filter: grayscale(0);
+              // display: none;
+              // &:last-of-type {
+              //   display: inline-block;
+              // }
             }
           }
         }
@@ -136,10 +146,10 @@ export default {
   }
   .productList {
     ul {
-      display: flex;
-      flex-flow: row wrap;
+      // display: flex;
+      // flex-flow: row wrap;
       li {
-        flex: 0 0 25%;
+        // flex: 0 0 25%;
         padding: 0 rem(50);
         margin-bottom: rem(60);
         cursor: pointer;
@@ -157,9 +167,11 @@ export default {
             vertical-align: middle;
             width: 100%;
             margin: auto;
-            &:last-of-type {
-              display: none;
-            }
+            filter: grayscale(100%);
+            transition: $duration;
+            // &:last-of-type {
+            //   display: none;
+            // }
           }
         }
         p {
@@ -170,10 +182,11 @@ export default {
         }
         &.active {
           img {
-            display: none;
-            &:last-of-type {
-              display: inline-block;
-            }
+            filter: grayscale(0);
+            // display: none;
+            // &:last-of-type {
+            //   display: inline-block;
+            // }
           }
           p {
             color: $activeColor;

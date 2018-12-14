@@ -4,7 +4,7 @@
       <P>LOAD MORE</P>
       <P><span></span></P>
     </div>
-    <div slot="no-more" class="nomore">NO MORE</div>
+    <div slot="no-more" class="nomore"></div>
     <div slot="no-results" class="noresults">NO RESULTS</div>
   </infinite-loading>
 </template>

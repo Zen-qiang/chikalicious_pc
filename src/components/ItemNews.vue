@@ -1,7 +1,7 @@
 <template>
   <div class="c-itemNews" :class="{active: active}">
     <div>
-      <img :src="datas.surfacePlot">
+      <!-- <img :src="datas.surfacePlot"> -->
       <img :src="datas.hoverUrl">
     </div>
     <div>
@@ -50,10 +50,11 @@ export default {
     > div {
       &:first-of-type {
         img {
-          display: none;
-          &:last-of-type {
-            display: inline-block;
-          }
+          filter: grayscale(0);
+          // display: none;
+          // &:last-of-type {
+          //   display: inline-block;
+          // }
         }
       }
       &:last-of-type {
@@ -69,10 +70,14 @@ export default {
       width: rem(380);
       img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         vertical-align: middle;
-        &:last-of-type {
-          display: none;
-        }
+        filter: grayscale(100%);
+        transition: $duration;
+        // &:last-of-type {
+        //   display: none;
+        // }
       }
     }
     &:last-of-type {
@@ -104,6 +109,15 @@ export default {
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         overflow: hidden;
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    > div {
+      &:last-of-type {
+        p {
+          -webkit-line-clamp: 3;
+        }
       }
     }
   }

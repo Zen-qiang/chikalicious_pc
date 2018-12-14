@@ -1,7 +1,7 @@
 <template>
   <div class="c-news">
-    <div>
-      <item-news v-for="(news, index) of newsData" :key="index" :active="activeIndex === index" @mouseenter.native="activeIndex = index" @mouseleave.native="activeIndex = null" :datas="news"></item-news>
+    <div class="newsContainer">
+      <item-news v-for="(news, index) of newsData" :key="index" :active="activeIndex === index || isTouchDevice" @mouseenter.native="activeIndex = index" @mouseleave.native="activeIndex = null" :datas="news"></item-news>
       <!-- :identifier="paramsType" -->
       <load-more :identifier="paramsType" @handeraction="getNews"></load-more>
     </div>
@@ -27,6 +27,11 @@ export default {
       page: 1,
       size: 10,
       activeIndex: null
+    }
+  },
+  computed: {
+    isTouchDevice () {
+      return 'ontouchstart' in document.documentElement
     }
   },
   watch: {
@@ -67,5 +72,10 @@ export default {
 .c-news {
   max-width: 960px;
   margin: rem(50) auto;
+}
+@media (max-width: 576px) {
+  .newsContainer {
+    padding: 0 20px;
+  }
 }
 </style>

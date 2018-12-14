@@ -54,5 +54,16 @@ export default {
       }
     }
   }
+  @media (max-width: 576px) {
+    .navs {
+      padding: 0;
+      ul {
+        li {
+          padding: 0 rem(20);
+          line-height: rem(80);
+        }
+      }
+    }
+  }
 }
 </style>

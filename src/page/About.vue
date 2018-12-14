@@ -41,6 +41,9 @@ export default {
   max-width: 960px;
   margin: rem(50) auto;
   font-size: rem(16);
+  @media (max-width: 576px) {
+    padding: 0 20px;
+  }
   .cover {
     p {
       text-align: center;
@@ -48,6 +51,9 @@ export default {
     img {
       vertical-align: middle;
     }
+  }
+  .content {
+    user-select: none;
   }
 }
 </style>

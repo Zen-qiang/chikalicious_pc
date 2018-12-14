@@ -7,7 +7,7 @@
     <footer>
       <footer-c></footer-c>
     </footer>
-    <back-to-top bottom="80px" right="60px"><span class="backtotop"></span></back-to-top>
+    <back-to-top class="backtotopContainer" bottom="80px" right="60px"><span class="backtotop"></span></back-to-top>
   </div>
 </template>
 <script>
@@ -31,6 +31,11 @@ export default {
   main {
     flex: 1;
   }
+  // @media (max-width: 576px) {
+  //   .backtotopContainer {
+  //     display: none;
+  //   }
+  // }
   .backtotop {
     display: block;
     width: rem(50);

@@ -30,7 +30,7 @@
     </div>
     <div class="relativeProduct">
       <div>
-        <item-product btnText="MORE NEWS" :active="false" :datas="datasFormart" moreRouteName="News" @clickaction="jump"></item-product>
+        <item-product btnText="MORE" :active="false" :datas="datasFormart" moreRouteName="Home" @clickaction="jump"></item-product>
       </div>
     </div>
   </div>
@@ -131,9 +131,10 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     padding: rem(80) 0;
-    background: linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center bottom;
-    background-size: 100% 1px;
+    // background: linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center bottom;
+    // background-size: 100% 1px;
     color: $color;
+    border-bottom: 1px solid currentColor;
     .imgSwiper {
       width: rem(500);
       height: rem(500);
@@ -162,7 +163,6 @@ export default {
         font-size: rem(18);
         font-weight: normal;
         font-family: 'GreyLight';
-        line-height: rem(20);
       }
       p {
         font-size: initial;
@@ -242,6 +242,20 @@ export default {
       margin: 0 auto;
       background: linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center top;
       background-size: 100% 1px;
+    }
+  }
+  @media (max-width: 576px) {
+    .detail {
+      padding: rem(80) rem(30);
+      .productInfo {
+        padding: rem(40) rem(40) rem(40) rem(60);
+      }
+    }
+    .content {
+      .rchContent {
+        padding: 0 rem(120);
+        font-size: 14px;
+      }
     }
   }
 }

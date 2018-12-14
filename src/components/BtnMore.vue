@@ -1,5 +1,5 @@
 <template>
-  <div class="c-btnmore" :class="{active: active}">
+  <div class="c-btnmore" :class="{active: active || isTouchDevice}">
     <span>{{btnText}}</span>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
     active: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    isTouchDevice () {
+      return 'ontouchstart' in document.documentElement
     }
   }
 }

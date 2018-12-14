@@ -3,10 +3,12 @@
     <h1>YOU MAY ALSO LOVE</h1>
     <ul>
       <li v-for="(item, index) of datas" :key="index"
+        :class="{active: isTouchDevice}"
         @click="$emit('clickaction', item.id)">
         <div class="imgContent">
-          <img :src="item.src">
-          <img class="hoverImg" :src="item.srcHover" v-if="item.srcHover">
+          <!-- <img :src="item.src"> -->
+          <!-- <img class="hoverImg" :src="item.srcHover" v-if="item.srcHover"> -->
+          <img class="hoverImg" :src="item.srcHover">
         </div>
         <div>
           <p>{{item.title}}</p>
@@ -55,6 +57,11 @@ export default {
     return {
       btnActive: false
     }
+  },
+  computed: {
+    isTouchDevice () {
+      return 'ontouchstart' in document.documentElement
+    }
   }
 }
 </script>
@@ -75,12 +82,13 @@ export default {
       flex: 0 0 33.3333333%;
       padding-right: rem(40);
       font-size: 0;
-      &:hover {
+      &:hover, &.active {
         .imgContent {
           img {
-            &.hoverImg {
-              display: inline-block;
-            }
+            filter: grayscale(0);
+            // &.hoverImg {
+            //   display: inline-block;
+            // }
           }
         }
       }
@@ -95,9 +103,11 @@ export default {
           margin: auto 0;
           width: 100%;
           vertical-align: middle;
-          &.hoverImg {
-            display: none;
-          }
+          filter: grayscale(100%);
+          transition: $duration;
+          // &.hoverImg {
+          //   display: none;
+          // }
         }
       }
       p {

@@ -5,9 +5,9 @@
     </div>
     <div class="content">
       <ul>
-        <li v-for="(item, index) of list" :key="index">
-          <div><img :src="item.cover"></div>
-          <div class="info">
+        <li v-for="(item, index) of list" :key="index" class="row">
+          <div class="col-12 col-sm-6"><img :src="item.cover"></div>
+          <div class="col-12 col-sm-6 info">
             <section>
               <p><span>{{item.label}}</span></p>
               <p><span>{{item.name}}</span></p>
@@ -87,12 +87,13 @@ export default {
       font-family: 'GreyLight';
       font-size: rem(18);
       line-height: rem(26);
+      margin: rem(8) 0;
     }
     li {
-      display: flex;
-      flex-flow: row nowrap;
+      // display: flex;
+      // flex-flow: row nowrap;
       > div {
-        flex: 1;
+        // flex: 1;
         img {
           width: 100%;
         }
@@ -116,6 +117,21 @@ export default {
           padding-right: rem(50);
           padding-left: 0;
           text-align: right;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      ul {
+        padding: 0 40px;
+        li {
+          margin-bottom: 30px;
+          .info section {
+            text-align: center;
+            p {
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
         }
       }
     }

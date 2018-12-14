@@ -7,7 +7,7 @@
     </div>
     <div class="relativeNews">
       <div>
-        <item-product btnText="MORE" :active="true" :datas="datasFormart" :moreRouteName="paramsType" @clickaction="jump"></item-product>
+        <item-product btnText="MORE" :active="false" :datas="datasFormart" :moreRouteName="paramsType" @clickaction="jump"></item-product>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
       let arr = []
       this.datas.forEach(element => {
         let obj = {
-          src: element.surfacePlot,
+          srcHover: element.hoverUrl,
           title: element.title,
           sub: element.formatReleaseTime,
           id: element.id
@@ -132,6 +132,15 @@ export default {
       margin: 0 auto;
       background: linear-gradient(to right, currentColor, currentColor, currentColor) no-repeat center top;
       background-size: 100% 1px;
+    }
+  }
+  @media (max-width: 576px) {
+    .content {
+      padding: rem(60);
+      .rchContent {
+        padding: 0 rem(80);
+        font-size: 14px;
+      }
     }
   }
 }

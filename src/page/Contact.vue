@@ -11,15 +11,15 @@
       </div>
     </div>
     <div class="sendemail">
-      <section>
-        <div class="lt">
+      <section class="row">
+        <div class="col-12 col-sm-6 lt">
           <div>
             <p>LEAVE A REPLY<br>Your email address will not be published.</p>
             <p>Comments? Questions? Requests?<br>Do not hesitate to get in touch with us.</p>
           </div>
           <div><button @click="sendEmail">SEND</button></div>
         </div>
-        <div class="rt">
+        <div class="col-12 col-sm-6 rt">
           <ul>
             <li>
               <span>COMMENT</span>
@@ -134,9 +134,9 @@ export default {
       max-width: 960px;
       margin: 0 auto;
       padding: rem(50) 0;
-      display: flex;
+      // display: flex;
       > div {
-        flex: 0 0 50%;
+        // flex: 0 0 50%;
       }
       .lt {
         display: flex;
@@ -150,10 +150,14 @@ export default {
           font-size: rem(18);
           border: none;
           cursor: pointer;
-          color: $activeColor;
+          // color: $activeColor;
+          color: #fff;
           background: #0c0c0c;
           line-height: rem(34);
           padding: 0 rem(60);
+          &:hover {
+            color: $activeColor;
+          }
         }
       }
       .rt {
@@ -162,12 +166,15 @@ export default {
           li {
             display: flex;
             margin-bottom: rem(15);
+            align-items: flex-start;
             span {
               width: rem(100);
               text-align: right;
               font-size: rem(16);
               margin-right: rem(10);
               line-height: rem(30);
+              flex: none;
+              white-space: nowrap;
             }
             input, textarea {
               flex: 1;
@@ -178,6 +185,33 @@ export default {
             }
             textarea {
               resize: none;
+            }
+          }
+        }
+      }
+      @media (max-width: 576px) {
+        flex-direction: column-reverse;
+        .lt {
+          text-align: center;
+          margin-top: 10px;
+          button {
+            padding: rem(10) rem(60);
+          }
+        }
+        .rt {
+          padding: 0 20px;
+          ul {
+            li {
+              span {
+                width: rem(180);
+                line-height: 16px;
+                margin-right: 10px;
+              }
+              input, textarea {
+                font-size: 14px;
+                outline: none;
+                line-height: 16px;
+              }
             }
           }
         }

@@ -37,6 +37,18 @@ html {
     $fontsize: 102px;
     font-size: $fontsize;
   }
+  @media screen and (max-width: 992px) {
+    $fontsize: 96px;
+    font-size: $fontsize;
+  }
+  @media screen and (max-width: 768px) {
+    $fontsize: 72px;
+    font-size: $fontsize;
+  }
+  @media screen and (max-width: 576px) {
+    $fontsize: 54px;
+    font-size: $fontsize;
+  }
   overflow-y: scroll;
 }
 :root {
