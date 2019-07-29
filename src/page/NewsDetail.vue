@@ -139,7 +139,7 @@ export default {
       padding: rem(60);
       .rchContent {
         padding: 0 rem(80);
-        font-size: 14px;
+        font-size: rem(18);
       }
     }
   }

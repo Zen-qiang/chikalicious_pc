@@ -156,7 +156,7 @@ export default {
       h1 {
         font-size: rem(40);
         font-weight: normal;
-        font-family: 'GrayBold';
+        font-family: 'GreyBold';
         line-height: rem(46);
       }
       h4 {
@@ -254,7 +254,7 @@ export default {
     .content {
       .rchContent {
         padding: 0 rem(120);
-        font-size: 14px;
+        font-size: rem(18);
       }
     }
   }

@@ -58,7 +58,7 @@ export default {
     }
   }
   > p {
-    font-size: 12px;
+    font-size: rem(16);
     margin: rem(100) 0 rem(40);
   }
 }

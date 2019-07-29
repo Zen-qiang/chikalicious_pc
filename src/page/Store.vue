@@ -73,6 +73,9 @@ export default {
   max-width: 960px;
   margin: rem(50) auto;
   .logoPic {
+    @media (max-width: 576px) {
+      margin: 0 20px;
+    }
     img {
       width: 100%;
       vertical-align: middle;
@@ -128,8 +131,8 @@ export default {
           .info section {
             text-align: center;
             p {
-              font-size: 14px;
-              line-height: 16px;
+              // font-size: 12px;
+              line-height: rem(32);
             }
           }
         }

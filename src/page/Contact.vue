@@ -96,6 +96,9 @@ export default {
     padding: rem(50) 0;
     text-align: center;
     font-size: 0;
+    @media (max-width: 576px) {
+      margin: 0 20px;
+    }
     > div {
       display: inline-block;
       width: rem(500);
@@ -129,7 +132,7 @@ export default {
   .sendemail {
     background: #947555;
     margin-top: rem(190);
-    font-family: 'GrayLight';
+    font-family: 'GreyLight';
     section {
       max-width: 960px;
       margin: 0 auto;
@@ -199,11 +202,11 @@ export default {
           }
         }
         .rt {
-          padding: 0 20px;
+          padding: 0 rem(40);
           ul {
             li {
               span {
-                width: rem(180);
+                width: rem(140);
                 line-height: 16px;
                 margin-right: 10px;
               }
